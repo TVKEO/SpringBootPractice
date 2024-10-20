@@ -19,7 +19,6 @@ import jakarta.servlet.http.HttpSession;
 public class ContactController {
 	@Autowired
 	private ContactService contactService;
-
 	@GetMapping("/contact")
 	public String contact(Model model) {
 		model.addAttribute("contactForm", new ContactForm());
