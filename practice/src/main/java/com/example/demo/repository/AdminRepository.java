@@ -1,11 +1,5 @@
 package com.example.demo.repository;
 
-import java.util.Optional;
+public class AdminRepository {
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.example.demo.entity.Admin;
-
-public interface AdminRepository extends JpaRepository <Admin, Long>{
-	Optional<Admin> findByEmail(String email);
 }
