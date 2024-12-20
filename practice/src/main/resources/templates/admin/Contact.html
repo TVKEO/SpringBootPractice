@@ -6,7 +6,10 @@
 </head>
 <body>
 	<h1>お問い合わせ</h1>
-	<form th:action="@{/contact}" th:object="${contactForm}" method="post">
+	<form th:action="@{/contacts}" th:object="${contactForm}" method="post">
+		<input type="hidden" th:name="${_csrf.parameterName}"
+			th:value="${_csrf.token}" />
+
 		<table border="1">
 			<tr>
 				<td>姓</td>
@@ -34,19 +37,19 @@
 			</tr>
 			<tr>
 				<td>郵便番号</td>
-				<td><input type="text" th:field="*{zipCode}" /> <span
+				<td><input type="text" th:field="*{zipCode}" /><span
 					th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}"
 					style="color: red"></span></td>
 			</tr>
 			<tr>
 				<td>住所</td>
-				<td><input type="text" th:field="*{address}"> <span
+				<td><input type="text" th:field="*{address}"><span
 					th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
 					style="color: red"></span></td>
 			</tr>
 			<tr>
 				<td>建物名</td>
-				<td><input type="text" th:field="*{buildingName}"> <span
+				<td><input type="text" th:field="*{buildingName}"><span
 					th:if="${#fields.hasErrors('buildingName')}"
 					th:errors="*{buildingName}" style="color: red"></span></td>
 			</tr>
@@ -61,7 +64,7 @@
 			</tr>
 			<tr>
 				<td>お問い合わせ内容</td>
-				<td><textarea th:field="*{body}" row="4" cols="80"></textarea>
+				<td><textarea th:field="*{body}" rows="4" cols="80"></textarea>
 					<span th:if="${#fields.hasErrors('body')}" th:errors="*{body}"
 					style="color: red"></span></td>
 			</tr>
